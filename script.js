@@ -558,3 +558,16 @@ window.addEventListener("scroll", () => {
         scrollPercent + "%";
 
 });
+function openCV() {
+    document.getElementById("cv-modal").classList.add("active");
+}
+
+function closeCV() {
+    document.getElementById("cv-modal").classList.remove("active");
+}
+
+document.getElementById("cv-modal").addEventListener("click", function(e) {
+    if (e.target === this) {
+        closeCV();
+    }
+});

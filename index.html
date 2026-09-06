@@ -31,6 +31,25 @@
         </nav>
     </header>
 
+    <!-- CV Modal -->
+<div id="cv-modal" class="cv-modal">
+    <div class="cv-modal-content">
+
+        <button class="cv-close" onclick="closeCV()">×</button>
+
+        <h2>My Curriculum Vitae</h2>
+
+        <img src="images/cabarlesCV.png" alt="Harvey Jasper Cabarles CV" class="cv-image">
+
+        <a href="images/cabarlesCV.png"
+           download="Harvey-Jasper-Cabarles-CV.png"
+           class="cv-download">
+            Download CV
+        </a>
+
+    </div>
+</div>
+
 
     <!-- HOME -->
 <section id="home" class="hero">
@@ -70,9 +89,12 @@
             <a href="#contact" class="btn second">
                 Contact Me
                 <span>→</span>
-            </a>
 
+            </a>
+            
         </div>
+        
+
         
 
         <!-- QUICK INFO -->
@@ -946,6 +968,13 @@
 
             <span id="copy-message"></span>
 
+            <div class="cv-contact">
+    <button class="cv-button" onclick="openCV()">
+        View My CV
+        <span>→</span>
+    </button>
+</div>
+
         </div>
 
 
@@ -1006,4 +1035,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
