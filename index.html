@@ -11,6 +11,7 @@
 </head>
 
 <body>
+     <div id="scroll-progress"></div>
 
     <!-- NAVIGATION -->
     <header>
@@ -32,50 +33,99 @@
 
 
     <!-- HOME -->
-    <section id="home" class="hero">
+<section id="home" class="hero">
 
-        <div class="hero-text">
+    <div class="hero-text">
 
-            <p class="hello">HELLO<span>.</span></p>
+        <p class="hello">HELLO<span>.</span> I'M</p>
 
-            <h1>I'm Harvey</h1>
+        <h1>
+            Harvey Jasper<br>
+            <span>T. Cabarles</span>
+        </h1>
 
-            <h2>
-                IT Student <span>|</span> Web Development
-            </h2>
+        <h2>
+            IT Student <span>|</span> Web Development
+        </h2>
 
-            <p class="intro">
-                I'm a 4th year IT student interested in technology
-                and web development. I'm looking for an opportunity
-                where I can learn, grow, and gain real-world experience.
-            </p>
+        <p class="intro">
+            I'm a 4th year Information Technology student
+            interested in technology and web development.
+            I'm currently building my skills through academic
+            projects, seminars, and hands-on learning.
+        </p>
 
-            <div class="ojt-badge">
-                <span></span> AVAILABLE FOR OJT
+        <div class="ojt-badge">
+            <span></span>
+            AVAILABLE FOR OJT
+        </div>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn">
+                View My Work
+                <span>→</span>
+            </a>
+
+            <a href="#contact" class="btn second">
+                Contact Me
+                <span>→</span>
+            </a>
+
+        </div>
+        
+
+        <!-- QUICK INFO -->
+        <div class="hero-info">
+
+            <div>
+                <strong>04</strong>
+                <span>YEAR IT STUDENT</span>
             </div>
 
-            <div class="buttons">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn second">Contact Me</a>
+            <div>
+                <strong>06</strong>
+                <span>TECHNOLOGIES</span>
+            </div>
+
+            <div>
+                <strong>02</strong>
+                <span>CAPSTONE PROJECTS</span>
             </div>
 
         </div>
 
-        <div class="photo-container">
+    </div>
 
-            <div class="photo-circle">
 
-                <img
-                    id="profile-photo"
-                    src="images/profile.jpg"
-                    alt="Harvey Jasper T. Cabarles"
-                >
+    <!-- PROFILE PHOTO -->
+    <div class="photo-container">
 
-            </div>
+        <div class="photo-circle">
+
+            <img
+                id="profile-photo"
+                src="images/profile.jpg"
+                alt="Harvey Jasper T. Cabarles"
+            >
 
         </div>
 
-    </section>
+        <div class="photo-label">
+            <span>01</span>
+            IT STUDENT
+        </div>
+
+    </div>
+
+
+    <!-- SCROLL INDICATOR -->
+    <a href="#about" class="scroll-down">
+        <span>SCROLL TO EXPLORE</span>
+        ↓
+    </a>
+
+</section>
 
 
     <!-- TECHNOLOGY BAR -->
@@ -452,6 +502,8 @@
 
                     <div class="completed-badge">
                         ✓ COMPLETED — PASSED CAPSTONE
+
+                        <img src="images/eborrow-achievement.jpg" class="achievement-photo" alt="E-Borrow Achievement">
                     </div>
 
                 </div>
@@ -583,6 +635,8 @@
                     <div class="defense-note">
                         <span>DEFENSE</span>
                         <strong>November 2026</strong>
+
+                        <img src="images/signspeak-achievement.jpg" class="achievement-photo" alt="SignSpeak-SafeCheck Achievement">
                     </div>
 
                 </div>
@@ -732,7 +786,7 @@
 
 
             <!-- JAVA FUNDAMENTALS -->
-            <div
+            <div    
                 class="credential-card certificate-card"
                 onclick="openCertificate()"
             >
