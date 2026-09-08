@@ -6066,3 +6066,49 @@ body.light .chatbot-toggle {
             0 0 18px rgba(139, 92, 246, 0.25);
     }
 }
+/* =====================================================
+   PROJECT MODAL - VISIBLE VIOLET CLOSE BUTTON
+   E-Borrow + SignSpeak-SafeCheck
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .modal-close {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+
+        width: 42px !important;
+        height: 42px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        background: #8b5cf6 !important;
+        color: #ffffff !important;
+
+        border: 2px solid #ffffff !important;
+        border-radius: 50% !important;
+
+        font-size: 25px !important;
+        font-weight: bold !important;
+        line-height: 1 !important;
+
+        box-shadow:
+            0 0 0 3px rgba(139, 92, 246, 0.25),
+            0 0 20px rgba(139, 92, 246, 0.65) !important;
+
+        z-index: 99999 !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .modal-close:hover,
+    .modal-close:active {
+        background: #a78bfa !important;
+        color: #ffffff !important;
+        transform: scale(1.05);
+    }
+}
