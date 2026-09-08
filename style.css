@@ -1079,7 +1079,7 @@ body.light .sign-card {
 
     transition: .3s;
 
-    z-index: 2000;
+    z-index: 1001;
 }
 
 .modal-overlay.active {
