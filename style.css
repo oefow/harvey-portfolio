@@ -4657,3 +4657,535 @@ body.light .cursor-glow {
     align-items: center;
     gap: 10px;
 }
+/* =====================================================
+   PREMIUM FIXED NAVBAR
+===================================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 9999;
+
+    transition:
+        padding .35s ease,
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+/* SCROLLED NAVBAR */
+
+header.nav-scrolled {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    background: rgba(8, 19, 27, .82);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, .25);
+}
+
+
+/* NAV LINKS */
+
+nav a {
+    position: relative;
+
+    color: #d8d8d8;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+/* HOVER */
+
+nav a:hover {
+    color: #a56cff;
+    transform: translateY(-2px);
+}
+
+
+/* ACTIVE LINK */
+
+nav a.active {
+    color: #a56cff;
+}
+
+
+/* VIOLET LINE UNDER ACTIVE LINK */
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #a56cff;
+
+    box-shadow:
+        0 0 10px rgba(165, 108, 255, .7);
+
+    transition: width .3s ease;
+}
+
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   LIGHT MODE NAVBAR
+===================================================== */
+
+body.light header {
+    background: rgba(244, 245, 246, .82);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+
+body.light header.nav-scrolled {
+    background: rgba(244, 245, 246, .88);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .08);
+}
+
+
+body.light nav a {
+    color: #333b40;
+}
+
+
+body.light nav a:hover,
+body.light nav a.active {
+    color: #7b4dcc;
+}
+
+
+body.light nav a::after {
+    background: #7b4dcc;
+
+    box-shadow:
+        0 0 8px rgba(123, 77, 204, .35);
+}
+
+
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header .logo {
+        font-size: 17px;
+    }
+
+    nav {
+        display: flex;
+
+        gap: 12px;
+
+        max-width: 55vw;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        flex-shrink: 0;
+
+        margin-left: 0;
+
+        font-size: 11px;
+    }
+
+    #theme-toggle {
+        flex-shrink: 0;
+
+        margin-left: 5px;
+
+        padding: 7px 9px;
+
+        font-size: 9px;
+    }
+
+    nav a::after {
+        bottom: -5px;
+    }
+
+}
+/* =========================
+   HARVEY PORTFOLIO CHATBOT
+========================= */
+
+.chatbot-toggle {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 2000;
+
+    padding: 13px 20px;
+    border: 1px solid #8b5cf6;
+    border-radius: 30px;
+
+    background: #15151c;
+    color: #f5f5f7;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+    transition: 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+    transform: translateY(-4px);
+    background: #8b5cf6;
+    color: white;
+}
+
+
+/* CHAT WINDOW */
+
+.chatbot-window {
+    position: fixed;
+
+    right: 25px;
+    bottom: 85px;
+
+    width: 350px;
+    max-width: calc(100vw - 30px);
+    height: 500px;
+
+    background: #0b0b0f;
+
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    z-index: 1999;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(139, 92, 246, 0.12);
+
+    display: none;
+
+    flex-direction: column;
+}
+
+
+/* OPEN STATE */
+
+.chatbot-window.chatbot-open {
+    display: flex;
+    animation: chatbotAppear 0.25s ease;
+}
+
+@keyframes chatbotAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* HEADER */
+
+.chatbot-header {
+    padding: 16px 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #15151c;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.chatbot-header strong {
+    display: block;
+
+    color: #f5f5f7;
+    font-size: 14px;
+}
+
+.chatbot-header span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #a7a7b0;
+    font-size: 11px;
+}
+
+.chatbot-close {
+    border: none;
+    background: transparent;
+
+    color: #a7a7b0;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.chatbot-close:hover {
+    color: #8b5cf6;
+}
+
+
+/* MESSAGES */
+
+.chatbot-messages {
+    flex: 1;
+
+    padding: 18px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* MESSAGE BUBBLES */
+
+.chatbot-message {
+    max-width: 82%;
+
+    padding: 11px 13px;
+
+    border-radius: 14px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.chatbot-message.bot {
+    align-self: flex-start;
+
+    background: #15151c;
+    color: #dcdce2;
+
+    border-bottom-left-radius: 4px;
+}
+
+.chatbot-message.user {
+    align-self: flex-end;
+
+    background: #8b5cf6;
+    color: white;
+
+    border-bottom-right-radius: 4px;
+}
+
+
+/* SUGGESTION BUTTONS */
+
+.chatbot-suggestions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.chatbot-suggestions button {
+    padding: 7px 11px;
+
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    border-radius: 20px;
+
+    background: transparent;
+
+    color: #a78bfa;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.chatbot-suggestions button:hover {
+    background: #8b5cf6;
+    color: white;
+}
+
+
+/* INPUT */
+
+.chatbot-input-area {
+    display: flex;
+
+    padding: 12px;
+
+    gap: 8px;
+
+    background: #15151c;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.chatbot-input-area input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #0b0b0f;
+
+    color: #f5f5f7;
+
+    font-size: 12px;
+}
+
+.chatbot-input-area input:focus {
+    border-color: #8b5cf6;
+}
+
+.chatbot-input-area button {
+    width: 42px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #8b5cf6;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+.chatbot-input-area button:hover {
+    background: #a78bfa;
+    transform: translateY(-2px);
+}
+
+
+/* LIGHT MODE */
+
+body.light .chatbot-window {
+    background: #fafafd;
+
+    border-color: rgba(124, 58, 237, 0.3);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+body.light .chatbot-header {
+    background: #f1f1f4;
+
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light .chatbot-header strong {
+    color: #202024;
+}
+
+body.light .chatbot-header span {
+    color: #5f5f68;
+}
+
+body.light .chatbot-message.bot {
+    background: #f1f1f4;
+    color: #303038;
+}
+
+body.light .chatbot-input-area {
+    background: #f1f1f4;
+
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light .chatbot-input-area input {
+    background: #fafafd;
+
+    color: #202024;
+
+    border-color: #d8d8df;
+}
+
+body.light .chatbot-toggle {
+    background: #fafafd;
+    color: #202024;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .chatbot-window {
+        right: 15px;
+        bottom: 80px;
+
+        width: calc(100vw - 30px);
+        height: 450px;
+    }
+
+    .chatbot-toggle {
+        right: 15px;
+        bottom: 18px;
+
+        padding: 11px 16px;
+
+        font-size: 12px;
+    }
+}

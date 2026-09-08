@@ -1003,8 +1003,77 @@
     </footer>
 
 
-    <script src="script.js"></script>
 
+
+  <!-- =========================
+     HARVEY PORTFOLIO CHATBOT
+========================= -->
+
+<button id="chatbot-toggle" class="chatbot-toggle">
+    💬 Ask Harvey
+</button>
+
+<div id="chatbot-window" class="chatbot-window">
+
+    <div class="chatbot-header">
+        <div>
+            <strong>🤖 Harvey Assistant</strong>
+            <span>Portfolio Assistant</span>
+        </div>
+
+        <button id="chatbot-close" class="chatbot-close">
+            ×
+        </button>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-messages">
+
+        <div class="chatbot-message bot">
+            👋 Hi! I'm Harvey's portfolio assistant.
+            <br><br>
+            Ask me about his skills, projects, OJT,
+            credentials, or contact information.
+        </div>
+
+        <div class="chatbot-suggestions">
+            <button onclick="askHarvey('skills')">
+                Skills
+            </button>
+
+            <button onclick="askHarvey('projects')">
+                Projects
+            </button>
+
+            <button onclick="askHarvey('ojt')">
+                OJT
+            </button>
+
+            <button onclick="askHarvey('credentials')">
+                Credentials
+            </button>
+        </div>
+
+    </div>
+
+    <div class="chatbot-input-area">
+
+        <input
+            type="text"
+            id="chatbot-input"
+            placeholder="Ask something..."
+            autocomplete="off"
+        >
+
+        <button id="chatbot-send">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+   <script src="script.js"></script>
 </body>
+
 
 </html>
