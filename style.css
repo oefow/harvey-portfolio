@@ -5920,3 +5920,15 @@ body.light .chatbot-toggle {
         margin-top: 22px;
     }
 }
+/* =====================================================
+   MOBILE PROJECT MODAL - HIDE NAVBAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* Hide navbar whenever a project modal is open */
+    body:has(.modal-overlay.active) header {
+        display: none !important;
+    }
+
+}
