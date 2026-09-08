@@ -5820,3 +5820,103 @@ body.light .chatbot-toggle {
         width: calc(100vw - 16px);
     }
 }
+
+/* =====================================================
+   MOBILE SPACING CORRECTION
+   Fixes excessive vertical spacing in the Home section.
+   Desktop styling is unchanged.
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 0;
+        height: auto;
+        padding: 105px 20px 45px;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+    }
+
+    .hero-text {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hello {
+        margin-top: 0;
+    }
+
+    .hero h1 {
+        margin: 12px 0 14px;
+    }
+
+    .hero h2 {
+        margin-bottom: 14px;
+    }
+
+    .intro {
+        line-height: 1.65;
+    }
+
+    .ojt-badge {
+        margin-top: 15px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    .photo-container {
+        height: 270px;
+        margin-top: 25px;
+        transform: none;
+        animation: none;
+    }
+
+    .photo-circle {
+        width: 245px;
+        height: 245px;
+        box-shadow: 0 0 0 10px rgba(139, 92, 246, .10);
+        animation: none;
+    }
+
+    .hero-info {
+        width: 100%;
+        justify-content: center;
+        gap: 28px;
+        margin-top: 25px;
+        padding-top: 18px;
+    }
+
+    .hero-info strong {
+        font-size: 21px;
+    }
+
+    .hero-info span {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .hero {
+        padding: 100px 16px 40px;
+    }
+
+    .photo-container {
+        height: 245px;
+        margin-top: 22px;
+    }
+
+    .photo-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-info {
+        gap: 20px;
+        margin-top: 22px;
+    }
+}
