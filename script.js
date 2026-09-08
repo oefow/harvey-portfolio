@@ -988,56 +988,189 @@ function getHarveyAnswer(question) {
         text.includes("who are you")
     ) {
 
-        return "I'm Harvey Jasper T. Cabarles, an Information Technology student and the person behind this portfolio.";
+        return "I'm Harvey Jasper T. Cabarles, a 4th Year Information Technology student and the person behind this portfolio.";
 
     }
 
 
-    /* SKILLS */
+    /* WHERE DO YOU STUDY? */
 
     if (
-        text.includes("skill") ||
-        text.includes("technology") ||
-        text.includes("technologies")
+        text.includes("where do you study") ||
+        text.includes("where are you studying") ||
+        text.includes("what school") ||
+        text.includes("where do you go to school") ||
+        text.includes("college")
     ) {
 
-        return "Harvey currently has basic knowledge of HTML, CSS, JavaScript, Python, Java, and Git.";
+        return "I am currently studying at STI College Alabang, where I am pursuing a Bachelor of Science in Information Technology.";
 
     }
 
 
-    /* PROJECTS */
+    /* AGE */
 
     if (
-        text.includes("project") ||
-        text.includes("projects")
+        text.includes("how old") ||
+        text.includes("your age") ||
+        text.includes("age")
     ) {
 
-        return "Harvey has worked on two capstone projects: E-Borrow and SignSpeak-SafeCheck.";
+        return "I am 21 years old.";
 
     }
 
 
-    /* E-BORROW */
+    /* TELL ME ABOUT YOURSELF */
 
     if (
-        text.includes("e-borrow") ||
-        text.includes("eborrow")
+        text.includes("tell me about yourself") ||
+        text.includes("about yourself") ||
+        text.includes("introduce yourself") ||
+        text === "about"
     ) {
 
-        return "E-Borrow is one of Harvey's capstone projects, developed as part of his Information Technology studies.";
+        return "I'm Harvey Jasper T. Cabarles, a 4th Year Information Technology student at STI College Alabang. I am interested in technology and continuously working to develop my technical and professional skills. I am currently preparing for OJT and looking forward to gaining practical experience in a professional IT environment.";
 
     }
 
 
-    /* SIGNSPEAK */
+    /* WHAT MAKES YOU UNIQUE */
 
     if (
-        text.includes("signspeak") ||
-        text.includes("sign speak")
+        text.includes("what makes you unique") ||
+        text.includes("what is your uniqueness") ||
+        text.includes("your uniqueness") ||
+        text.includes("what makes you different") ||
+        text.includes("unique")
     ) {
 
-        return "SignSpeak-SafeCheck is Harvey's second capstone project.";
+        return "I consider myself an adaptable person. I can adjust to new environments, learn from different situations, and remain open to new ideas and challenges. I believe adaptability is important in the IT field because technologies and requirements are constantly changing.";
+
+    }
+
+
+    /* STRONGEST SKILL */
+
+    if (
+        text.includes("strongest skill") ||
+        text.includes("best skill") ||
+        text.includes("what are you good at") ||
+        text.includes("what is your strongest")
+    ) {
+
+        return "One of my strengths is adaptability. I am willing to adjust to new environments, learn new tools, and improve when given feedback. I am also continuously developing my technical skills.";
+
+    }
+
+
+    /* STRENGTHS */
+
+    if (
+        text.includes("strengths") ||
+        text.includes("your strengths") ||
+        text.includes("what are your strengths")
+    ) {
+
+        return "My strengths are my willingness to learn, adaptability, patience, and determination to improve. I may still be developing my skills, but I am willing to put in the effort to learn, accept feedback, and grow.";
+
+    }
+
+
+    /* WEAKNESS */
+
+    if (
+        text.includes("weakness") ||
+        text.includes("weaknesses") ||
+        text.includes("your weakness")
+    ) {
+
+        return "I am still developing my technical and programming skills, particularly in areas that require more advanced knowledge. However, I continuously practice, explore new concepts, and use every opportunity to improve.";
+
+    }
+
+
+    /* GOALS */
+
+    if (
+        text.includes("goal") ||
+        text.includes("goals") ||
+        text.includes("future goal") ||
+        text.includes("career goal")
+    ) {
+
+        return "My goal is to gain practical experience in the IT industry, strengthen my technical skills, and develop the professional skills needed to become a reliable IT professional.";
+
+    }
+
+
+    /* WHY OJT */
+
+    if (
+        text.includes("why ojt") ||
+        text.includes("why internship") ||
+        text.includes("why do you want an internship") ||
+        text.includes("reason for ojt")
+    ) {
+
+        return "I want to experience how IT work is done in a professional environment, apply what I have learned in school, and gain hands-on experience while learning from experienced professionals.";
+
+    }
+
+
+    /* WHY SHOULD WE ACCEPT YOU */
+
+    if (
+        text.includes("why should we accept") ||
+        text.includes("why should we hire") ||
+        text.includes("why should we choose") ||
+        text.includes("why accept you") ||
+        text.includes("why hire you")
+    ) {
+
+        return "You should consider accepting me because I am adaptable, willing to learn, and committed to improving my skills. Although I am still gaining professional experience, I am eager to contribute, accept feedback, and learn from the opportunities provided by the company.";
+
+    }
+
+
+    /* WHAT CAN YOU CONTRIBUTE */
+
+    if (
+        text.includes("what can you contribute") ||
+        text.includes("what can you offer") ||
+        text.includes("what can you bring") ||
+        text.includes("what will you contribute")
+    ) {
+
+        return "I can contribute my willingness to learn, adaptability, teamwork, and dedication. I am also willing to assist with tasks, learn the company's processes, and continuously improve throughout my OJT.";
+
+    }
+
+
+    /* OJT EXPECTATIONS */
+
+    if (
+        text.includes("what do you expect from ojt") ||
+        text.includes("what are your expectations") ||
+        text.includes("ojt expectations") ||
+        text.includes("expect from internship")
+    ) {
+
+        return "I expect to gain real-world experience, learn from professionals, improve my technical and communication skills, and better understand how an IT team works in a professional environment.";
+
+    }
+
+
+    /* WILLING TO LEARN */
+
+    if (
+        text.includes("willing to learn") ||
+        text.includes("learn new technologies") ||
+        text.includes("open to learning") ||
+        text.includes("new technology")
+    ) {
+
+        return "Yes. I am open to learning new technologies and tools. I believe being willing to learn and adapt is essential for continuous growth in the IT industry.";
 
     }
 
@@ -1050,7 +1183,141 @@ function getHarveyAnswer(question) {
         text.includes("intern")
     ) {
 
-        return "Yes! Harvey is open to OJT opportunities and is willing to learn, improve his skills, and gain real-world IT experience.";
+        return "Yes! I am open to OJT opportunities and eager to gain real-world IT experience. I am willing to learn, adapt to a professional environment, accept feedback, and contribute where I can.";
+
+    }
+
+
+    /* WORK EXPERIENCE */
+
+    if (
+        text.includes("work experience") ||
+        text.includes("job experience") ||
+        text.includes("professional experience") ||
+        text.includes("have you worked")
+    ) {
+
+        return "I do not have professional work experience yet. However, I have gained experience through academic projects, seminars, training, and hands-on activities related to Information Technology.";
+
+    }
+
+
+    /* CURRENTLY LEARNING */
+
+    if (
+        text.includes("currently learning") ||
+        text.includes("what are you learning") ||
+        text.includes("learning now")
+    ) {
+
+        return "I am currently improving my knowledge of web development, programming, IT fundamentals, and professional skills. I am also interested in gaining more hands-on experience with technologies used in real-world IT environments.";
+
+    }
+
+
+    /* PROJECT ROLE */
+
+    if (
+        text.includes("project role") ||
+        text.includes("your role in the project") ||
+        text.includes("what was your role") ||
+        text.includes("your contribution")
+    ) {
+
+        return "I contributed to different parts of my capstone projects, including planning, development, testing, documentation, and completing system requirements. These experiences helped me understand how different parts of a project work together.";
+
+    }
+
+
+    /* PROJECT CHALLENGES */
+
+    if (
+        text.includes("project challenge") ||
+        text.includes("project challenges") ||
+        text.includes("challenge in your project") ||
+        text.includes("difficulties in your project")
+    ) {
+
+        return "Working on academic projects involved challenges such as understanding requirements, solving technical problems, coordinating with teammates, and completing tasks within a deadline. These experiences taught me to be patient, adaptable, and willing to learn.";
+
+    }
+
+
+    /* E-BORROW LEARNING */
+
+    if (
+        text.includes("what did you learn from e-borrow") ||
+        text.includes("what did you learn from eborrow") ||
+        text.includes("e-borrow learning") ||
+        text.includes("eborrow learning")
+    ) {
+
+        return "E-Borrow helped me learn more about system development, teamwork, planning, testing, documentation, and applying IT concepts to a practical system.";
+
+    }
+
+
+    /* E-BORROW */
+
+    if (
+        text.includes("e-borrow") ||
+        text.includes("eborrow")
+    ) {
+
+        return "E-Borrow is one of my capstone projects. It is an online borrowing system designed to help residents check equipment availability and submit borrowing requests online. I contributed to planning, development, testing, documentation, and completing system requirements.";
+
+    }
+
+
+    /* SIGNSPEAK LEARNING */
+
+    if (
+        text.includes("what did you learn from signspeak") ||
+        text.includes("signspeak learning") ||
+        text.includes("what did you learn from sign speak")
+    ) {
+
+        return "SignSpeak-SafeCheck helped me improve my problem-solving, teamwork, system development, and ability to work with a project that addresses a practical need.";
+
+    }
+
+
+    /* SIGNSPEAK */
+
+    if (
+        text.includes("signspeak") ||
+        text.includes("sign speak") ||
+        text.includes("safecheck")
+    ) {
+
+        return "SignSpeak-SafeCheck is my second capstone project. It combines sign language recognition with a safety-checking concept and gave me an opportunity to apply technical knowledge while working on a practical IT project.";
+
+    }
+
+
+    /* PROJECTS */
+
+    if (
+        text.includes("project") ||
+        text.includes("projects") ||
+        text.includes("capstone")
+    ) {
+
+        return "I have worked on two capstone projects: E-Borrow and SignSpeak-SafeCheck. Both projects helped me apply IT concepts while developing my problem-solving, teamwork, and system development skills.";
+
+    }
+
+
+    /* SKILLS */
+
+    if (
+        text.includes("skill") ||
+        text.includes("technology") ||
+        text.includes("technologies") ||
+        text.includes("programming language")
+    ) {
+
+        return "I currently have basic knowledge of HTML, CSS, JavaScript, Python, Java, and Git. I am continuously practicing and improving these skills through academic projects and hands-on learning.";
 
     }
 
@@ -1061,10 +1328,11 @@ function getHarveyAnswer(question) {
         text.includes("credential") ||
         text.includes("certificate") ||
         text.includes("certification") ||
-        text.includes("seminar")
+        text.includes("seminar") ||
+        text.includes("training")
     ) {
 
-        return "Harvey's portfolio includes credentials and training related to Cybersecurity, Java Programming, SAP, and AWS.";
+        return "My portfolio includes credentials and training related to Cybersecurity, Java Programming, SAP, and AWS. These learning experiences helped me broaden my knowledge beyond regular coursework.";
 
     }
 
@@ -1075,10 +1343,12 @@ function getHarveyAnswer(question) {
         text.includes("education") ||
         text.includes("course") ||
         text.includes("degree") ||
-        text.includes("school")
+        text.includes("program") ||
+        text.includes("school") ||
+        text.includes("college")
     ) {
 
-        return "Harvey is a 4th Year Information Technology student.";
+        return "I am a 4th Year Bachelor of Science in Information Technology student at STI College Alabang.";
 
     }
 
@@ -1088,10 +1358,11 @@ function getHarveyAnswer(question) {
     if (
         text.includes("contact") ||
         text.includes("email") ||
-        text.includes("gmail")
+        text.includes("gmail") ||
+        text.includes("how can i reach you")
     ) {
 
-        return "You can contact Harvey through his email: harveyjasper14@gmail.com.";
+        return "You can contact me through my email: harveyjasper14@gmail.com.";
 
     }
 
@@ -1100,10 +1371,11 @@ function getHarveyAnswer(question) {
 
     if (
         text.includes("cv") ||
-        text.includes("resume")
+        text.includes("resume") ||
+        text.includes("curriculum vitae")
     ) {
 
-        return "You can view Harvey's CV using the 'View My CV' button in the Contact section.";
+        return "You can view my CV using the 'View My CV' button in the Contact section of this portfolio.";
 
     }
 
