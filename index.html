@@ -13,23 +13,35 @@
 <body>
      <div id="scroll-progress"></div>
 
-    <!-- NAVIGATION -->
-    <header>
-        <a href="#home" class="logo">
-            Harvey Jasper T. Cabarles<span>.</span>
-        </a>
+   
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact</a>
+<!-- FLOATING NAVIGATION -->
+<header id="mobile-header">
+    <a href="#home" class="logo">
+        Harvey Jasper T. Cabarles<span>.</span>
+    </a>
 
-            <button id="theme-toggle" onclick="toggleTheme()">☀ Light</button>
-        </nav>
-    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+
+        <button id="theme-toggle" onclick="toggleTheme()">☀ Light</button>
+    </nav>
+
+    <button id="mobile-nav-hide" aria-label="Hide navigation">
+        HIDE MENU <span>⌃</span>
+    </button>
+</header>
+
+<!-- RESTORE NAVIGATION BUTTON -->
+<button id="mobile-nav-show" aria-label="Show navigation">
+    SHOW MENU <span>↓</span>
+</button>
+
 
     <!-- CV Modal -->
 <div id="cv-modal" class="cv-modal">
@@ -478,6 +490,8 @@
             </div>
 
         </div>
+
+        
 
     </section>
 

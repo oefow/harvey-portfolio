@@ -1634,6 +1634,100 @@ if (chatbotClearButton) {
     );
 }
 
+/* =====================================
+   MOBILE NAVIGATION HIDE / SHOW
+===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const mobileHeader = document.getElementById("mobile-header");
+    const hideButton = document.getElementById("mobile-nav-hide");
+    const showButton = document.getElementById("mobile-nav-show");
+
+    if (!mobileHeader || !hideButton || !showButton) return;
+
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    function hideMobileNav() {
+        mobileHeader.classList.add("nav-hidden");
+        showButton.classList.add("visible");
+    }
+
+    function showMobileNav() {
+        mobileHeader.classList.remove("nav-hidden");
+        showButton.classList.remove("visible");
+    }
+
+    // Tap controls
+    hideButton.addEventListener("click", hideMobileNav);
+    showButton.addEventListener("click", showMobileNav);
+
+    // Swipe up on the navigation to hide
+    mobileHeader.addEventListener("touchstart", function (event) {
+        touchStartY = event.changedTouches[0].screenY;
+    }, { passive: true });
+
+    mobileHeader.addEventListener("touchend", function (event) {
+        touchEndY = event.changedTouches[0].screenY;
+
+        const distance = touchStartY - touchEndY;
+
+        if (distance > 60) {
+            hideMobileNav();
+        }
+    }, { passive: true });
+
+    // Swipe down on the small tab to show
+    showButton.addEventListener("touchstart", function (event) {
+        touchStartY = event.changedTouches[0].screenY;
+    }, { passive: true });
+
+    showButton.addEventListener("touchend", function (event) {
+        touchEndY = event.changedTouches[0].screenY;
+
+        const distance = touchEndY - touchStartY;
+
+        if (distance > 30) {
+            showMobileNav();
+        }
+    }, { passive: true });
+
+});
+
+// FLOATING NAVIGATION HIDE / SHOW
+(function () {
+    function setupFloatingNav() {
+        const header = document.getElementById("mobile-header");
+        const hideButton = document.getElementById("mobile-nav-hide");
+        const showButton = document.getElementById("mobile-nav-show");
+
+        if (!header || !hideButton || !showButton) return;
+
+        function hideNav() {
+            header.classList.add("nav-hidden");
+            showButton.classList.add("visible");
+        }
+
+        function showNav() {
+            header.classList.remove("nav-hidden");
+            showButton.classList.remove("visible");
+        }
+
+        hideButton.addEventListener("click", hideNav);
+        showButton.addEventListener("click", showNav);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupFloatingNav);
+    } else {
+        setupFloatingNav();
+    }
+    
+})
+();
+
+
 
 /* =========================================================
    END OF SCRIPT
