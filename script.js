@@ -852,36 +852,45 @@ if (harveyBot.close) {
 ========================================================= */
 
 function sendHarveyMessage() {
-
     if (!harveyBot.input) return;
 
-    const message =
-        harveyBot.input.value.trim();
+    const message = harveyBot.input.value.trim();
 
     if (message === "") return;
 
-
-    addHarveyMessage(
-        message,
-        "user"
-    );
-
+    addHarveyMessage(message, "user");
 
     harveyBot.input.value = "";
 
+    // Remove old follow-up buttons
+    removeHarveyFollowUps();
+
+    // Show typing animation
+    const typing = document.createElement("div");
+    typing.className = "chatbot-message bot chatbot-typing";
+    typing.id = "harvey-typing";
+    typing.innerHTML = `
+        Harvey is typing
+        <span></span><span></span><span></span>
+    `;
+
+    harveyBot.messages.appendChild(typing);
+    harveyBot.messages.scrollTop = harveyBot.messages.scrollHeight;
 
     setTimeout(function () {
+        const typingMessage = document.getElementById("harvey-typing");
 
-        const answer =
-            getHarveyAnswer(message);
+        if (typingMessage) {
+            typingMessage.remove();
+        }
 
-        addHarveyMessage(
-            answer,
-            "bot"
-        );
+        const answer = getHarveyAnswer(message);
 
-    }, 500);
+        addHarveyMessage(answer, "bot");
 
+        showHarveyFollowUps(message);
+
+    }, 900);
 }
 
 
@@ -927,34 +936,18 @@ if (harveyBot.send) {
    26. ADD CHATBOT MESSAGE
 ========================================================= */
 
-function addHarveyMessage(
-    message,
-    type
-) {
-
+function addHarveyMessage(message, type) {
     if (!harveyBot.messages) return;
 
+    const messageElement = document.createElement("div");
 
-    const messageElement =
-        document.createElement("div");
+    messageElement.className = "chatbot-message " + type;
+    messageElement.textContent = message;
 
-
-    messageElement.className =
-        "chatbot-message " + type;
-
-
-    messageElement.textContent =
-        message;
-
-
-    harveyBot.messages.appendChild(
-        messageElement
-    );
-
+    harveyBot.messages.appendChild(messageElement);
 
     harveyBot.messages.scrollTop =
         harveyBot.messages.scrollHeight;
-
 }
 
 
@@ -968,17 +961,15 @@ function getHarveyAnswer(question) {
         question.toLowerCase().trim();
 
 
-    /* HELLO */
-
-    if (
-        text.includes("hello") ||
-        text.includes("hi") ||
-        text.includes("hey")
-    ) {
-
-        return "👋 Hello! I'm Harvey's portfolio assistant. Ask me about his skills, projects, OJT, credentials, education, CV, or contact information.";
-
-    }
+   /* HELLO */
+if (
+    /\b(hello|hi|hey)\b/.test(text) ||
+    text.includes("good morning") ||
+    text.includes("good afternoon") ||
+    text.includes("good evening")
+) {
+    return "👋 Hello! I'm Harvey's portfolio assistant. Ask me about Harvey, his skills, projects, OJT, education, credentials, goals, or contact information.";
+}
 
 
     /* NAME */
@@ -1400,48 +1391,247 @@ function getHarveyAnswer(question) {
 
 
 /* =========================================================
-   28. CHATBOT QUICK QUESTIONS
+   /* =========================================================
+   28. CHATBOT FAQ CATEGORIES
 ========================================================= */
 
 function askHarvey(topic) {
-
     if (!harveyBot.input) return;
 
+    const questions = {
+        about: "Can you tell me about yourself?",
+        skills: "What are your skills?",
+        projects: "What projects have you made?",
+        ojt: "Are you available for OJT?",
+        education: "What is your educational background?",
+        contact: "How can I contact you?",
+        credentials: "What credentials do you have?"
+    };
 
-    if (topic === "skills") {
+    const question = questions[topic];
 
-        harveyBot.input.value =
-            "What are your skills?";
+    if (!question) return;
 
-    }
-
-
-    else if (topic === "projects") {
-
-        harveyBot.input.value =
-            "What projects have you made?";
-
-    }
-
-
-    else if (topic === "ojt") {
-
-        harveyBot.input.value =
-            "Are you available for OJT?";
-
-    }
-
-
-    else if (topic === "credentials") {
-
-        harveyBot.input.value =
-            "What credentials do you have?";
-
-    }
-
-
+    harveyBot.input.value = question;
     sendHarveyMessage();
+}
 
+
+/* =========================================================
+   29. CHATBOT FOLLOW-UP QUESTIONS
+========================================================= */
+
+function removeHarveyFollowUps() {
+    const oldFollowUps =
+        document.getElementById("harvey-followups");
+
+    if (oldFollowUps) {
+        oldFollowUps.remove();
+    }
+}
+
+
+function showHarveyFollowUps(question) {
+    if (!harveyBot.messages) return;
+
+    const text = question.toLowerCase();
+
+    let suggestions = [
+        "What are your strengths?",
+        "What are your goals?",
+        "Do you have work experience?"
+    ];
+
+    if (text.includes("skill")) {
+        suggestions = [
+            "What is your strongest skill?",
+            "What are you currently learning?",
+            "What are your areas of interest?"
+        ];
+    } else if (
+        text.includes("project") ||
+        text.includes("e-borrow") ||
+        text.includes("signspeak")
+    ) {
+        suggestions = [
+            "What was your role in the project?",
+            "What challenges did you encounter?",
+            "What did you learn from your projects?"
+        ];
+    } else if (
+        text.includes("ojt") ||
+        text.includes("intern")
+    ) {
+        suggestions = [
+            "Why do you want OJT?",
+            "Why should we accept you?",
+            "What can you contribute?"
+        ];
+    } else if (
+        text.includes("education") ||
+        text.includes("school")
+    ) {
+        suggestions = [
+            "What course are you taking?",
+            "What year level are you?",
+            "What are your career goals?"
+        ];
+    } else if (
+        text.includes("contact") ||
+        text.includes("email")
+    ) {
+        suggestions = [
+            "Where can I view your CV?",
+            "What projects can I explore?"
+        ];
+    }
+
+    const container = document.createElement("div");
+
+    container.id = "harvey-followups";
+    container.className = "chatbot-followups";
+
+    const label = document.createElement("p");
+    label.textContent = "You can also ask:";
+
+    container.appendChild(label);
+
+    suggestions.forEach(function (questionText) {
+        const button = document.createElement("button");
+
+        button.textContent = questionText;
+
+        button.addEventListener("click", function () {
+            harveyBot.input.value = questionText;
+            sendHarveyMessage();
+        });
+
+        container.appendChild(button);
+    });
+
+    harveyBot.messages.appendChild(container);
+
+    harveyBot.messages.scrollTop =
+        harveyBot.messages.scrollHeight;
+}
+
+
+/* =========================================================
+   30. CLEAR CHAT
+========================================================= */
+
+function clearHarveyChat() {
+    if (!harveyBot.messages) return;
+
+    harveyBot.messages.innerHTML = "";
+
+    addHarveyMessage(
+        "👋 Hi! I'm Harvey's portfolio assistant. Ask me about his background, skills, projects, OJT, education, credentials, or contact information.",
+        "bot"
+    );
+
+    addHarveyStarterButtons();
+}
+
+
+function addHarveyStarterButtons() {
+    if (!harveyBot.messages) return;
+
+    const categories = [
+        ["About Me", "about"],
+        ["Skills", "skills"],
+        ["Projects", "projects"],
+        ["OJT Interview", "ojt"],
+        ["Education", "education"],
+        ["Contact", "contact"]
+    ];
+
+    const suggestions = document.createElement("div");
+    suggestions.className = "chatbot-suggestions";
+
+    categories.forEach(function (item) {
+        const button = document.createElement("button");
+
+        button.textContent = item[0];
+
+        button.addEventListener("click", function () {
+            askHarvey(item[1]);
+        });
+
+        suggestions.appendChild(button);
+    });
+
+    harveyBot.messages.appendChild(suggestions);
+
+    const navigation = document.createElement("div");
+    navigation.className = "chatbot-navigation";
+
+    const title = document.createElement("p");
+    title.textContent = "Explore my portfolio";
+
+    navigation.appendChild(title);
+
+    const links = [
+        ["View Skills", "skills"],
+        ["View Projects", "projects"],
+        ["View Credentials", "credentials"],
+        ["Contact Me", "contact"]
+    ];
+
+    links.forEach(function (item) {
+        const button = document.createElement("button");
+
+        button.textContent = item[0];
+
+        button.addEventListener("click", function () {
+            navigateToSection(item[1]);
+        });
+
+        navigation.appendChild(button);
+    });
+
+    harveyBot.messages.appendChild(navigation);
+
+    harveyBot.messages.scrollTop =
+        harveyBot.messages.scrollHeight;
+}
+
+
+/* =========================================================
+   31. PORTFOLIO NAVIGATION
+========================================================= */
+
+function navigateToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+        console.warn("Portfolio section not found:", sectionId);
+        return;
+    }
+
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    if (harveyBot.window) {
+        harveyBot.window.classList.remove("chatbot-open");
+    }
+}
+
+
+/* =========================================================
+   32. CLEAR CHAT BUTTON EVENT
+========================================================= */
+
+const chatbotClearButton =
+    document.getElementById("chatbot-clear");
+
+if (chatbotClearButton) {
+    chatbotClearButton.addEventListener(
+        "click",
+        clearHarveyChat
+    );
 }
 
 
